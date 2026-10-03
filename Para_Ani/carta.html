@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Ani ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            background:
+                radial-gradient(circle at top, #35101d, #10070b 45%, #050505);
+
+            color: white;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+        }
+
+
+        /* CORAZONES */
+
+        .corazones {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: 0;
+        }
+
+        .corazon {
+
+            position: absolute;
+
+            bottom: -50px;
+
+            opacity: 0;
+
+            animation: subir 8s linear infinite;
+        }
+
+        .corazon:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .corazon:nth-child(2) {
+            left: 30%;
+            animation-delay: 3s;
+        }
+
+        .corazon:nth-child(3) {
+            left: 55%;
+            animation-delay: 1s;
+        }
+
+        .corazon:nth-child(4) {
+            left: 80%;
+            animation-delay: 5s;
+        }
+
+        @keyframes subir {
+
+            0% {
+                transform: translateY(0) scale(0.7);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.5;
+            }
+
+            80% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-110vh) scale(1.3);
+                opacity: 0;
+            }
+        }
+
+
+        /* CONTENEDOR */
+
+        .contenido {
+
+            position: relative;
+
+            z-index: 1;
+
+            width: 90%;
+
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 80px 0;
+        }
+
+
+        /* ENCABEZADO */
+
+        .inicio {
+
+            text-align: center;
+
+            margin-bottom: 70px;
+
+            animation: aparecer 1.5s ease;
+        }
+
+        .inicio .corazon-grande {
+
+            font-size: 65px;
+
+            margin-bottom: 20px;
+
+            animation: latido 1.8s infinite;
+
+            filter:
+                drop-shadow(0 0 20px rgba(255,60,100,.5));
+        }
+
+        .inicio h1 {
+
+            font-size: clamp(40px, 8vw, 70px);
+
+            font-weight: normal;
+
+            margin-bottom: 15px;
+        }
+
+        .inicio p {
+
+            color: #d4bfc5;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* CARTA */
+
+        .carta {
+
+            background: rgba(255,255,255,0.045);
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            border-radius: 25px;
+
+            padding: clamp(25px, 6vw, 60px);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 20px 70px rgba(0,0,0,.4);
+
+            line-height: 1.9;
+
+            font-size: 18px;
+
+            animation: aparecer 2s ease;
+        }
+
+        .carta p {
+
+            margin-bottom: 25px;
+
+            color: #eee4e7;
+        }
+
+        .carta .destacado {
+
+            text-align: center;
+
+            font-size: 24px;
+
+            color: #ffb7c5;
+
+            margin: 45px 0;
+
+            line-height: 1.6;
+        }
+
+
+        /* FIRMA */
+
+        .firma {
+
+            text-align: right;
+
+            margin-top: 50px;
+
+            color: #ffb7c5;
+
+            font-size: 22px;
+        }
+
+
+        /* BOTÓN */
+
+        .boton {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 60px auto 0;
+
+            padding: 16px 32px;
+
+            border: 1px solid rgba(255,255,255,.2);
+
+            border-radius: 50px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+
+            background: rgba(255,255,255,.05);
+
+            transition: .4s;
+        }
+
+        .boton:hover {
+
+            transform: translateY(-4px);
+
+            background: rgba(255,60,100,.15);
+
+            box-shadow:
+                0 0 30px rgba(255,60,100,.2);
+        }
+
+
+        /* ANIMACIONES */
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(30px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes latido {
+
+            0%,100% {
+
+                transform: scale(1);
+            }
+
+            50% {
+
+                transform: scale(1.12);
+            }
+        }
+
+
+        /* MÓVIL */
+
+        @media(max-width:600px) {
+
+            .carta {
+
+                font-size: 16px;
+
+                line-height: 1.8;
+            }
+
+            .carta .destacado {
+
+                font-size: 21px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- CORAZONES -->
+
+    <div class="corazones">
+
+        <div class="corazon">❤️</div>
+        <div class="corazon">💕</div>
+        <div class="corazon">❤️</div>
+        <div class="corazon">💗</div>
+
+    </div>
+
+
+    <main class="contenido">
+
+
+        <!-- ENCABEZADO -->
+
+        <section class="inicio">
+
+            <div class="corazon-grande">
+                ❤️
+            </div>
+
+            <h1>
+                Para mi Ani
+            </h1>
+
+            <p>
+                Hay algo que llevo tiempo queriendo decirte...
+            </p>
+
+        </section>
+
+
+        <!-- CARTA -->
+
+        <article class="carta">
+
+
+            <p>
+                Amor mío:
+            </p>
+
+
+            <p>
+                No sé exactamente en qué momento llegaste a
+                convertirte en una de las personas más importantes
+                de mi vida.
+            </p>
+
+
+            <p>
+                Tal vez fue en una conversación cualquiera,
+                en una mirada que duró un poquito más de lo normal,
+                en una de esas risas que se nos escapaban sin darnos
+                cuenta...
+            </p>
+
+
+            <p>
+                O quizás simplemente fue el destino haciendo de las
+                suyas y poniendo tu camino junto al mío.
+            </p>
+
+
+            <p class="destacado">
+                Pero desde que llegaste,<br>
+                hay cosas que cambiaron.
+            </p>
+
+
+            <p>
+                Cambió la manera en la que veo mis días,
+                porque ahora siempre hay una parte de mí
+                que piensa en ti.
+            </p>
+
+
+            <p>
+                Cambió la forma en la que entiendo el cariño,
+                porque contigo descubrí que querer a alguien
+                no solamente significa decir "te amo".
+            </p>
+
+
+            <p>
+                Significa preocuparse, escuchar, extrañar,
+                cuidar, aprender, perdonar, quedarse y tratar
+                de ser mejor cada día.
+            </p>
+
+
+            <p>
+                Y si te soy sincero, a veces me cuesta explicar
+                todo lo que siento por ti.
+            </p>
+
+
+            <p class="destacado">
+                Porque decir "te amo"<br>
+                se me queda pequeño.
+            </p>
+
+
+            <p>
+                ¿Cómo explico que me encanta escucharte incluso
+                cuando hablamos de cualquier tontería?
+            </p>
+
+
+            <p>
+                ¿Cómo explico que una simple conversación contigo
+                puede cambiar completamente mi día?
+            </p>
+
+
+            <p>
+                ¿Cómo explico que a veces veo algo y automáticamente
+                pienso: "esto le gustaría a ella"?
+            </p>
+
+
+            <p>
+                ¿Cómo explico que cuando me pasa algo, bueno o malo,
+                una de las primeras personas con las que quiero
+                compartirlo eres tú?
+            </p>
+
+
+            <p>
+                ¿Cómo explico que poco a poco te fuiste convirtiendo
+                en parte de mi vida sin que siquiera me diera cuenta?
+            </p>
+
+
+            <p>
+                No quiero quererte solamente en los días bonitos.
+            </p>
+
+
+            <p>
+                Quiero estar cuando estés feliz y tengas mil razones
+                para sonreír, pero también cuando sientas que no
+                puedes más.
+            </p>
+
+
+            <p>
+                Quiero estar cuando todo te salga bien,
+                pero también cuando tengas días malos y necesites
+                a alguien que simplemente se quede a tu lado.
+            </p>
+
+
+            <p class="destacado">
+                Quiero conocer cada versión de ti.
+            </p>
+
+
+            <p>
+                La que ríe hasta que le duele el estómago.
+                La que se enoja por cualquier cosa.
+                La que se pone sensible.
+                La que tiene miedo.
+                La que sueña despierta.
+                La que necesita un abrazo pero no sabe cómo pedirlo.
+            </p>
+
+
+            <p>
+                Quiero conocerlas todas.
+            </p>
+
+
+            <p>
+                Porque no me enamoré solamente de tus momentos bonitos.
+            </p>
+
+
+            <p class="destacado">
+                Me enamoré de ti.
+            </p>
+
+
+            <p>
+                De tu forma de ser, de tu manera de hablar,
+                de tus ocurrencias, de tus gestos y de todas
+                esas pequeñas cosas que probablemente tú ni
+                siquiera notas, pero que para mí significan muchísimo.
+            </p>
+
+
+            <p>
+                Y sé que no soy perfecto.
+            </p>
+
+
+            <p>
+                Sé que puedo equivocarme, decir cosas que no debería,
+                tener malos días, cometer errores o no saber cómo
+                expresar lo que siento.
+            </p>
+
+
+            <p>
+                Pero hay algo de lo que sí estoy seguro:
+            </p>
+
+
+            <p class="destacado">
+                Lo que siento por ti es real.
+            </p>
+
+
+            <p>
+                Quiero que aprendamos juntos.
+                Quiero que podamos mirarnos después de una discusión
+                y recordar que ninguno de los dos está luchando contra
+                el otro.
+            </p>
+
+
+            <p>
+                Estamos intentando cuidar algo que nos importa.
+            </p>
+
+
+            <p>
+                Quiero recuerdos.
+            </p>
+
+
+            <p>
+                Quiero fotografías que algún día miremos y digamos:
+                "¿Te acuerdas de ese día?"
+            </p>
+
+
+            <p>
+                Quiero viajes, salidas improvisadas, noches hablando
+                hasta quedarnos dormidos y llamadas que empiezan con
+                un "solo cinco minutos" y terminan durando horas.
+            </p>
+
+
+            <p>
+                Quiero celebrar tus logros como si fueran míos.
+                Quiero verte cumplir tus sueños.
+            </p>
+
+
+            <p>
+                Y quizás suene demasiado soñador...
+            </p>
+
+
+            <p class="destacado">
+                Pero cuando se trata de ti,<br>
+                me gusta imaginar un futuro.
+            </p>
+
+
+            <p>
+                Un futuro donde sigamos escogiendo estar juntos.
+            </p>
+
+
+            <p>
+                Porque no quiero que estés conmigo simplemente
+                porque empezamos una relación y ahora "toca"
+                seguir.
+            </p>
+
+
+            <p>
+                Quiero que cada día podamos volver a escogernos.
+            </p>
+
+
+            <p class="destacado">
+                Que incluso después de conocer<br>
+                nuestras partes menos bonitas,<br>
+                sigamos diciendo:<br><br>
+                "Te quiero a ti."
+            </p>
+
+
+            <p>
+                Y si algún día dudas de lo que significas para mí,
+                quiero que recuerdes esto:
+            </p>
+
+
+            <p>
+                Eres esa persona que logró ocupar un espacio
+                en mi corazón que nadie sabía que estaba esperando.
+            </p>
+
+
+            <p>
+                Eres esa persona que puede hacerme sonreír
+                con un mensaje.
+            </p>
+
+
+            <p>
+                Eres esa persona que puedo extrañar incluso
+                después de haber hablado contigo hace unos minutos.
+            </p>
+
+
+            <p>
+                Eres esa persona que aparece en mis pensamientos
+                cuando estoy haciendo cualquier cosa.
+            </p>
+
+
+            <p>
+                Y eres esa persona que, sin darse cuenta,
+                hizo que mi corazón aprendiera a sentirse
+                en casa en alguien.
+            </p>
+
+
+            <p class="destacado">
+                Entre millones de personas,<br>
+                mi corazón tuvo la suerte de encontrarte a ti.
+            </p>
+
+
+            <p>
+                Y no sé qué nos tenga preparado la vida.
+            </p>
+
+
+            <p>
+                No sé dónde estaremos dentro de uno, cinco
+                o diez años.
+            </p>
+
+
+            <p>
+                No puedo prometerte que todo será perfecto.
+            </p>
+
+
+            <p>
+                Pero sí puedo prometerte que mientras esté contigo,
+                voy a intentar darte lo mejor de mí.
+            </p>
+
+
+            <p>
+                Voy a intentar cuidarte.
+                Voy a intentar escucharte.
+                Voy a intentar entenderte.
+                Voy a intentar hacerte sentir querida.
+            </p>
+
+
+            <p>
+                Y sobre todo, voy a intentar que nunca tengas
+                que preguntarte si realmente significas algo para mí.
+            </p>
+
+
+            <p class="destacado">
+                Porque significas muchísimo.
+            </p>
+
+
+            <p>
+                Más de lo que probablemente puedo explicar
+                en un solo mensaje.
+            </p>
+
+
+            <p>
+                Y si algún día me preguntaras qué fue lo que vi
+                en ti para enamorarme, probablemente no sabría
+                darte una sola respuesta.
+            </p>
+
+
+            <p>
+                Porque no fue una sola cosa.
+            </p>
+
+
+            <p class="destacado">
+                Fueron miles.
+            </p>
+
+
+            <p>
+                Fue tu sonrisa.
+                Fue tu mirada.
+                Fue tu forma de hablar.
+                Fueron nuestras conversaciones.
+                Fueron nuestras risas.
+                Fueron los momentos pequeños.
+            </p>
+
+
+            <p>
+                Fue la manera en la que poco a poco empezaste
+                a formar parte de mis pensamientos, de mis planes
+                y de mis días.
+            </p>
+
+
+            <p>
+                Fue sentir que contigo podía ser yo.
+            </p>
+
+
+            <p class="destacado">
+                Y quizá eso es una de las cosas<br>
+                más bonitas que alguien puede regalarte:
+                sentirte libre de ser quien eres<br>
+                y aun así sentirte querido.
+            </p>
+
+
+            <p>
+                Por eso hoy solamente quiero decirte gracias.
+            </p>
+
+
+            <p>
+                Gracias por llegar a mi vida.
+            </p>
+
+
+            <p>
+                Gracias por cada sonrisa.
+                Gracias por cada conversación.
+                Gracias por cada abrazo.
+                Gracias por cada momento.
+            </p>
+
+
+            <p>
+                Gracias por permitirme conocerte.
+                Gracias por dejarme quererte.
+                Gracias por ser tú.
+            </p>
+
+
+            <p class="destacado">
+                Te amo, mi Ani.
+            </p>
+
+
+            <div class="firma">
+
+                Con todo mi amor ❤️<br>
+
+                <small>
+                    Desde el 09 de enero de 2026
+                </small>
+
+            </div>
+
+
+        </article>
+
+
+        <!-- BOTÓN -->
+
+        <a class="boton" href="galeria.html">
+
+            Continuar nuestra historia 📸
+
+        </a>
+
+
+    </main>
+
+
+</body>
+</html>

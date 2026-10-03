@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ani ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Georgia, 'Times New Roman', serif;
+            color: white;
+            background:
+                radial-gradient(circle at top, #3b111f 0%, #17070d 45%, #050205 100%);
+            overflow-x: hidden;
+        }
+
+        /* Luces de fondo */
+        .luz {
+            position: fixed;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255, 70, 120, 0.08);
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .luz1 {
+            top: 10%;
+            left: -100px;
+        }
+
+        .luz2 {
+            bottom: 10%;
+            right: -100px;
+            background: rgba(180, 30, 80, 0.08);
+        }
+
+        /* Contenedor principal */
+        .contenedor {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            padding: 80px 25px;
+            text-align: center;
+        }
+
+        /* Corazón */
+        .corazon {
+            font-size: 75px;
+            animation: latido 1.5s infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 60, 100, 0.5));
+            margin-bottom: 25px;
+        }
+
+        @keyframes latido {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        h1 {
+            font-size: clamp(42px, 8vw, 75px);
+            font-weight: normal;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .subtitulo {
+            font-family: Arial, sans-serif;
+            color: #f0cbd4;
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* Botón */
+        .btn {
+            margin-top: 40px;
+            padding: 16px 30px;
+            border: 1px solid rgba(255, 150, 175, 0.5);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.06);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: Arial, sans-serif;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: rgba(255, 80, 120, 0.15);
+            box-shadow: 0 0 25px rgba(255, 80, 120, 0.2);
+        }
+
+        /* Mensaje */
+        .mensaje {
+            display: none;
+            margin-top: 70px;
+            padding: 45px 30px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 150, 175, 0.18);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.35);
+            animation: aparecer 1.5s ease;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mensaje h2 {
+            font-size: clamp(30px, 6vw, 48px);
+            font-weight: normal;
+            margin-bottom: 30px;
+        }
+
+        .mensaje p {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            line-height: 2;
+            color: #f3dce2;
+            margin-bottom: 22px;
+        }
+
+        .firma {
+            margin-top: 40px;
+            font-size: 23px;
+            line-height: 1.8;
+        }
+
+        /* Pregunta final */
+        .pregunta-final {
+            display: none;
+            margin-top: 80px;
+            padding: 50px 25px;
+            animation: aparecer 1.5s ease;
+        }
+
+        .pregunta-final h2 {
+            font-size: clamp(30px, 6vw, 50px);
+            font-weight: normal;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        .pregunta-final p {
+            font-family: Arial, sans-serif;
+            color: #eacbd3;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn-si {
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 150, 175, 0.5);
+            background: rgba(255, 70, 110, 0.12);
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-si:hover {
+            transform: scale(1.08);
+            background: rgba(255, 70, 110, 0.22);
+            box-shadow: 0 0 30px rgba(255, 80, 120, 0.25);
+        }
+
+        /* Respuesta final */
+        .respuesta-final {
+            display: none;
+            margin-top: 55px;
+            animation: aparecer 1.5s ease;
+        }
+
+        .respuesta-final h2 {
+            font-size: clamp(32px, 7vw, 55px);
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .respuesta-final p {
+            font-family: Arial, sans-serif;
+            color: #f2dce2;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Corazones */
+        .corazon-volador {
+            position: fixed;
+            bottom: -50px;
+            pointer-events: none;
+            z-index: 10;
+            animation: subir 4s linear forwards;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) scale(0.7) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) scale(1.2) rotate(25deg);
+                opacity: 0;
+            }
+        }
+
+        /* Corazones de explosión */
+        .explosion {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            font-size: 25px;
+            pointer-events: none;
+            z-index: 20;
+            animation: explotar 2s ease-out forwards;
+        }
+
+        @keyframes explotar {
+            0% {
+                transform: translate(-50%, -50%) scale(0.3);
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translate(
+                        calc(-50% + var(--x)),
+                        calc(-50% + var(--y))
+                    )
+                    scale(1.4)
+                    rotate(var(--r));
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 100px;
+            font-family: Arial, sans-serif;
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 13px;
+        }
+
+        /* Celulares */
+        @media (max-width: 600px) {
+
+            .contenedor {
+                padding: 60px 18px;
+            }
+
+            .corazon {
+                font-size: 60px;
+            }
+
+            .subtitulo {
+                font-size: 16px;
+            }
+
+            .mensaje {
+                padding: 35px 20px;
+            }
+
+            .mensaje p {
+                font-size: 15px;
+                line-height: 1.8;
+            }
+
+            .pregunta-final {
+                padding: 30px 10px;
+            }
+
+            .btn-si {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="luz luz1"></div>
+    <div class="luz luz2"></div>
+
+    <main class="contenedor">
+
+        <div class="corazon">❤️</div>
+
+        <h1>Ani...</h1>
+
+        <p class="subtitulo">
+            Llegaste hasta el final de esta pequeña historia
+            que hice pensando solamente en ti.
+            <br><br>
+            Pero antes de terminar...
+            hay algo más que quiero decirte.
+        </p>
+
+        <button class="btn" onclick="mostrarMensaje()">
+            Quiero saber qué es ❤️
+        </button>
+
+
+        <!-- MENSAJE PRINCIPAL -->
+
+        <section id="mensaje" class="mensaje">
+
+            <h2>Hay algo que quiero que sepas...</h2>
+
+            <p>
+                Si llegaste hasta aquí, probablemente ya entendiste
+                que todo esto no lo hice simplemente para hacer
+                una página bonita.
+            </p>
+
+            <p>
+                La hice porque a veces siento tantas cosas por ti
+                que un simple "te amo" no alcanza para explicar
+                todo lo que pasa dentro de mí.
+            </p>
+
+            <p>
+                Desde aquel 09 de enero de 2026,
+                mi vida tiene una fecha que siempre voy a recordar.
+            </p>
+
+            <p>
+                Porque ese día comenzó una historia que,
+                sinceramente, espero que tenga muchísimos capítulos más.
+            </p>
+
+            <p>
+                Quiero seguir llenando nuestra historia de fotografías,
+                risas, abrazos, conversaciones, viajes, locuras
+                y recuerdos que algún día podamos mirar juntos
+                y decir:
+                <br><br>
+                <strong>
+                    "Mira todo lo que hemos vivido."
+                </strong>
+            </p>
+
+            <p>
+                Y si tuviera que elegirte otra vez,
+                entre millones de personas,
+                en cualquier lugar y en cualquier momento...
+            </p>
+
+            <p>
+                <strong>
+                    Te elegiría a ti.
+                </strong>
+            </p>
+
+            <p>
+                Porque de todas las casualidades de mi vida...
+                tú eres mi favorita.
+            </p>
+
+            <p>
+                Gracias por existir.
+                <br>
+                Gracias por llegar a mi vida.
+                <br>
+                Gracias por cada momento.
+                <br>
+                Y gracias por ser tú.
+            </p>
+
+            <div class="firma">
+                TE AMO, ANI. ❤️
+                <br><br>
+                Con todo mi amor ❤️
+                <br>
+                09 de enero de 2026 — y todos los días que vengan
+            </div>
+
+        </section>
+
+
+        <!-- PREGUNTA FINAL -->
+
+        <section id="preguntaFinal" class="pregunta-final">
+
+            <h2>
+                ¿Me dejarías seguir escribiendo
+                esta historia contigo? ❤️
+            </h2>
+
+            <p>
+                Porque yo todavía no quiero ponerle un punto final...
+            </p>
+
+            <div class="botones">
+
+                <button class="btn-si" onclick="aceptarHistoria()">
+                    SÍ ❤️
+                </button>
+
+                <button class="btn-si" onclick="aceptarHistoria()">
+                    OBVIAMENTE ❤️
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESPUESTA FINAL -->
+
+        <section id="respuestaFinal" class="respuesta-final">
+
+            <h2>
+                Entonces tenemos una historia
+                que seguir escribiendo... ❤️
+            </h2>
+
+            <p>
+                Y espero que este sea solamente
+                el comienzo de todo lo bonito
+                que todavía nos queda por vivir.
+            </p>
+
+            <div style="font-size: 45px; margin-top: 30px;">
+                ❤️ 💕 ❤️
+            </div>
+
+        </section>
+
+
+        <div class="footer">
+            Hecho con amor, solamente para ti. ❤️
+        </div>
+
+    </main>
+
+
+    <script>
+
+        /* Mostrar el mensaje */
+
+        function mostrarMensaje() {
+
+            const mensaje = document.getElementById("mensaje");
+            const pregunta = document.getElementById("preguntaFinal");
+
+            mensaje.style.display = "block";
+
+            setTimeout(() => {
+
+                pregunta.style.display = "block";
+
+                setTimeout(() => {
+
+                    pregunta.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }, 500);
+
+            }, 700);
+
+            crearCorazones();
+
+        }
+
+
+        /* Respuesta a la pregunta */
+
+        function aceptarHistoria() {
+
+            const respuesta = document.getElementById("respuestaFinal");
+
+            respuesta.style.display = "block";
+
+            crearExplosion();
+
+            crearCorazones();
+
+            setTimeout(() => {
+
+                respuesta.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }, 400);
+
+        }
+
+
+        /* Corazones flotando */
+
+        function crearCorazones() {
+
+            const corazones = [
+                "❤️",
+                "💕",
+                "💗",
+                "💖",
+                "💘"
+            ];
+
+            for (let i = 0; i < 18; i++) {
+
+                const corazon = document.createElement("div");
+
+                corazon.className = "corazon-volador";
+
+                corazon.innerHTML =
+                    corazones[
+                        Math.floor(Math.random() * corazones.length)
+                    ];
+
+                corazon.style.left =
+                    Math.random() * 100 + "vw";
+
+                corazon.style.fontSize =
+                    (15 + Math.random() * 25) + "px";
+
+                corazon.style.animationDuration =
+                    (3 + Math.random() * 3) + "s";
+
+                document.body.appendChild(corazon);
+
+                setTimeout(() => {
+                    corazon.remove();
+                }, 6500);
+            }
+        }
+
+
+        /* Explosión de corazones */
+
+        function crearExplosion() {
+
+            const corazones = [
+                "❤️",
+                "💕",
+                "💗",
+                "💖",
+                "💘",
+                "💓"
+            ];
+
+            for (let i = 0; i < 35; i++) {
+
+                const corazon = document.createElement("div");
+
+                corazon.className = "explosion";
+
+                corazon.innerHTML =
+                    corazones[
+                        Math.floor(Math.random() * corazones.length)
+                    ];
+
+                const x =
+                    (Math.random() - 0.5) * 800;
+
+                const y =
+                    (Math.random() - 0.5) * 700;
+
+                const r =
+                    (Math.random() - 0.5) * 180;
+
+                corazon.style.setProperty(
+                    "--x",
+                    x + "px"
+                );
+
+                corazon.style.setProperty(
+                    "--y",
+                    y + "px"
+                );
+
+                corazon.style.setProperty(
+                    "--r",
+                    r + "deg"
+                );
+
+                corazon.style.animationDelay =
+                    Math.random() * 0.3 + "s";
+
+                document.body.appendChild(corazon);
+
+                setTimeout(() => {
+                    corazon.remove();
+                }, 2500);
+            }
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Ani ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at 50% 40%, #35101d 0%, #15070d 35%, #050505 75%);
+
+            color: white;
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        /* ===== ESTRELLAS ===== */
+
+        .estrellas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .estrella {
+            position: absolute;
+
+            width: 3px;
+            height: 3px;
+
+            background: white;
+            border-radius: 50%;
+
+            opacity: 0.7;
+
+            animation: brillar 3s infinite ease-in-out;
+        }
+
+        .estrella:nth-child(1) {
+            top: 10%;
+            left: 15%;
+        }
+
+        .estrella:nth-child(2) {
+            top: 20%;
+            left: 80%;
+            animation-delay: 1s;
+        }
+
+        .estrella:nth-child(3) {
+            top: 70%;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        .estrella:nth-child(4) {
+            top: 80%;
+            left: 85%;
+            animation-delay: 1.5s;
+        }
+
+        .estrella:nth-child(5) {
+            top: 35%;
+            left: 25%;
+            animation-delay: 0.5s;
+        }
+
+        .estrella:nth-child(6) {
+            top: 60%;
+            left: 75%;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes brillar {
+
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.8);
+            }
+
+        }
+
+
+        /* ===== CONTENIDO ===== */
+
+        .inicio {
+            position: relative;
+
+            width: 90%;
+            max-width: 700px;
+
+            text-align: center;
+
+            animation: aparecer 2s ease;
+        }
+
+        .pequeno {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+
+            font-size: 13px;
+
+            color: #d99aa9;
+
+            margin-bottom: 25px;
+        }
+
+        .corazon {
+            font-size: 75px;
+
+            margin-bottom: 20px;
+
+            filter: drop-shadow(0 0 25px rgba(255, 60, 100, 0.6));
+
+            animation: latido 1.8s infinite;
+        }
+
+        h1 {
+            font-size: clamp(42px, 8vw, 75px);
+
+            font-weight: normal;
+
+            margin-bottom: 20px;
+
+            text-shadow:
+                0 0 20px rgba(255, 80, 110, 0.25);
+        }
+
+        .frase {
+            font-size: 19px;
+
+            line-height: 1.7;
+
+            color: #d4c4c8;
+
+            margin-bottom: 40px;
+        }
+
+        /* ===== BOTÓN ===== */
+
+        .boton {
+
+            display: inline-block;
+
+            padding: 16px 35px;
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            border-radius: 50px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 15px;
+
+            letter-spacing: 1px;
+
+            background: rgba(255,255,255,0.05);
+
+            backdrop-filter: blur(10px);
+
+            transition: 0.4s;
+
+            cursor: pointer;
+        }
+
+        .boton:hover {
+
+            transform: translateY(-4px);
+
+            background: rgba(255, 60, 100, 0.15);
+
+            border-color: rgba(255, 100, 130, 0.6);
+
+            box-shadow:
+                0 0 30px rgba(255, 60, 100, 0.2);
+        }
+
+        /* ===== ANIMACIONES ===== */
+
+        @keyframes latido {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* ===== MÓVIL ===== */
+
+        @media (max-width: 600px) {
+
+            .frase {
+                font-size: 16px;
+            }
+
+            .corazon {
+                font-size: 60px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ESTRELLAS -->
+
+    <div class="estrellas">
+
+        <div class="estrella"></div>
+        <div class="estrella"></div>
+        <div class="estrella"></div>
+        <div class="estrella"></div>
+        <div class="estrella"></div>
+        <div class="estrella"></div>
+
+    </div>
+
+
+    <!-- PORTADA -->
+
+    <main class="inicio">
+
+        <div class="pequeno">
+            Para alguien muy especial
+        </div>
+
+        <div class="corazon">
+            ❤️
+        </div>
+
+        <h1>
+            Para mi Ani
+        </h1>
+
+        <p class="frase">
+            Hay cosas que son difíciles de decir con palabras...
+            <br>
+            así que decidí escribirte una pequeña parte de todo lo que siento por ti.
+        </p>
+
+        <a class="boton" href="carta.html">
+            Abrir mi corazón ❤️
+        </a>
+
+    </main>
+
+</body>
+</html>

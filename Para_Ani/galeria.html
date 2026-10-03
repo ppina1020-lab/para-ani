@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nuestra historia ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at top, #32101c, #10070b 45%, #050505);
+
+            color: white;
+
+            font-family: Arial, sans-serif;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           FONDO
+        ========================= */
+
+        .fondo {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        .luz {
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 60, 100, 0.08);
+
+            filter: blur(80px);
+
+            animation: mover 10s infinite alternate ease-in-out;
+        }
+
+        .luz:nth-child(1) {
+
+            top: 10%;
+            left: -100px;
+        }
+
+        .luz:nth-child(2) {
+
+            bottom: 10%;
+            right: -100px;
+
+            animation-delay: 3s;
+        }
+
+
+        @keyframes mover {
+
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(100px, 50px);
+            }
+
+        }
+
+
+        /* =========================
+           CONTENIDO
+        ========================= */
+
+        .contenido {
+
+            position: relative;
+
+            z-index: 1;
+
+            width: 92%;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 80px 0;
+        }
+
+
+        /* =========================
+           ENCABEZADO
+        ========================= */
+
+        .encabezado {
+
+            text-align: center;
+
+            margin-bottom: 60px;
+
+            animation: aparecer 1.5s ease;
+        }
+
+
+        .encabezado .corazon {
+
+            font-size: 65px;
+
+            margin-bottom: 20px;
+
+            animation: latido 1.8s infinite;
+
+            filter:
+                drop-shadow(0 0 20px rgba(255,60,100,.5));
+        }
+
+
+        .encabezado h1 {
+
+            font-family: Georgia, serif;
+
+            font-size: clamp(40px, 7vw, 70px);
+
+            font-weight: normal;
+
+            margin-bottom: 20px;
+        }
+
+
+        .encabezado p {
+
+            color: #cdbdc2;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CONTADOR
+        ========================= */
+
+        .contador {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            max-width: 650px;
+
+            margin: 0 auto 70px;
+        }
+
+
+        .numero {
+
+            text-align: center;
+
+            padding: 22px 10px;
+
+            background: rgba(255,255,255,.04);
+
+            border:
+                1px solid rgba(255,255,255,.1);
+
+            border-radius: 18px;
+
+            backdrop-filter: blur(10px);
+        }
+
+
+        .numero strong {
+
+            display: block;
+
+            font-size: 32px;
+
+            color: #ffb3c1;
+
+            margin-bottom: 6px;
+        }
+
+
+        .numero span {
+
+            color: #aaa;
+
+            font-size: 13px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           GALERÍA
+        ========================= */
+
+        .galeria {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+
+            margin-bottom: 70px;
+        }
+
+
+        .foto {
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,.04);
+
+            border:
+                1px solid rgba(255,255,255,.12);
+
+            min-height: 300px;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.35);
+
+            transition: .5s;
+
+            animation: aparecer 1.2s ease;
+        }
+
+
+        .foto:hover {
+
+            transform:
+                translateY(-8px)
+                scale(1.02);
+
+            box-shadow:
+                0 20px 60px rgba(255,60,100,.15);
+        }
+
+
+        .foto img {
+
+            width: 100%;
+
+            height: 100%;
+
+            min-height: 300px;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: .6s;
+        }
+
+
+        .foto:hover img {
+
+            transform: scale(1.08);
+        }
+
+
+        .texto-foto {
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 35px 20px 20px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,.9)
+                );
+
+            color: white;
+
+            font-family: Georgia, serif;
+
+            font-size: 17px;
+
+            line-height: 1.4;
+        }
+
+
+        /* =========================
+           CUANDO NO HAY FOTO
+        ========================= */
+
+        .sin-foto {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            height: 100%;
+
+            min-height: 300px;
+
+            color: #777;
+
+            text-align: center;
+
+            padding: 20px;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           FRASE
+        ========================= */
+
+        .frase {
+
+            max-width: 750px;
+
+            margin: 0 auto 60px;
+
+            text-align: center;
+
+            font-family: Georgia, serif;
+
+            font-size: clamp(22px, 4vw, 32px);
+
+            line-height: 1.6;
+
+            color: #f2dce1;
+        }
+
+
+        /* =========================
+           BOTÓN
+        ========================= */
+
+        .boton {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: auto;
+
+            padding: 16px 32px;
+
+            border-radius: 50px;
+
+            border:
+                1px solid rgba(255,255,255,.2);
+
+            background:
+                rgba(255,255,255,.05);
+
+            color: white;
+
+            text-decoration: none;
+
+            transition: .4s;
+        }
+
+
+        .boton:hover {
+
+            transform: translateY(-4px);
+
+            background:
+                rgba(255,60,100,.15);
+
+            box-shadow:
+                0 0 30px rgba(255,60,100,.2);
+        }
+
+
+        /* =========================
+           ANIMACIONES
+        ========================= */
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(30px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+        @keyframes latido {
+
+            0%,100% {
+
+                transform: scale(1);
+            }
+
+            50% {
+
+                transform: scale(1.12);
+            }
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media(max-width: 800px) {
+
+            .galeria {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width: 550px) {
+
+            .contador {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+                gap: 8px;
+            }
+
+
+            .numero {
+
+                padding: 15px 5px;
+            }
+
+
+            .numero strong {
+
+                font-size: 24px;
+            }
+
+
+            .numero span {
+
+                font-size: 10px;
+            }
+
+
+            .galeria {
+
+                grid-template-columns: 1fr;
+
+                gap: 18px;
+            }
+
+
+            .foto,
+            .foto img {
+
+                min-height: 360px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- FONDO -->
+
+    <div class="fondo">
+
+        <div class="luz"></div>
+
+        <div class="luz"></div>
+
+    </div>
+
+
+    <main class="contenido">
+
+
+        <!-- ENCABEZADO -->
+
+        <section class="encabezado">
+
+            <div class="corazon">
+                ❤️
+            </div>
+
+            <h1>
+                Nuestra historia
+            </h1>
+
+            <p>
+                Algunos momentos pueden parecer pequeños...
+                <br>
+                pero contigo se convierten en recuerdos enormes.
+            </p>
+
+        </section>
+
+
+        <!-- CONTADOR -->
+
+        <section class="contador">
+
+            <div class="numero">
+
+                <strong id="dias">
+                    0
+                </strong>
+
+                <span>
+                    días
+                </span>
+
+            </div>
+
+
+            <div class="numero">
+
+                <strong id="horas">
+                    0
+                </strong>
+
+                <span>
+                    horas
+                </span>
+
+            </div>
+
+
+            <div class="numero">
+
+                <strong id="minutos">
+                    0
+                </strong>
+
+                <span>
+                    minutos
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- FRASE -->
+
+        <div class="frase">
+
+            Desde aquel
+            <strong>09 de enero de 2026</strong>,
+            mi vida tiene una fecha que siempre voy a recordar.
+
+        </div>
+
+
+        <!-- GALERÍA -->
+
+        <section class="galeria">
+
+
+            <!-- FOTO 1 -->
+
+            <div class="foto">
+
+                <img
+                    src="fotos/foto1.jpg"
+                    alt="Nuestro recuerdo"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML += '<div class=\'sin-foto\'>📸<br><br>Aquí irá nuestra primera foto</div>';"
+                >
+
+                <div class="texto-foto">
+
+                    Un recuerdo que quiero guardar para siempre. ❤️
+
+                </div>
+
+            </div>
+
+
+            <!-- FOTO 2 -->
+
+            <div class="foto">
+
+                <img
+                    src="fotos/foto2.jpg"
+                    alt="Nuestro recuerdo"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML += '<div class=\'sin-foto\'>📸<br><br>Aquí irá nuestra segunda foto</div>';"
+                >
+
+                <div class="texto-foto">
+
+                    Porque contigo hasta los momentos simples son especiales.
+
+                </div>
+
+            </div>
+
+
+            <!-- FOTO 3 -->
+
+            <div class="foto">
+
+                <img
+                    src="fotos/foto3.jpg"
+                    alt="Nuestro recuerdo"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML += '<div class=\'sin-foto\'>📸<br><br>Aquí irá nuestra tercera foto</div>';"
+                >
+
+                <div class="texto-foto">
+
+                    Uno de tantos momentos que quiero volver a vivir.
+
+                </div>
+
+            </div>
+
+
+            <!-- FOTO 4 -->
+
+            <div class="foto">
+
+                <img
+                    src="fotos/foto4.jpg"
+                    alt="Nuestro recuerdo"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML += '<div class=\'sin-foto\'>📸<br><br>Aquí irá nuestra cuarta foto</div>';"
+                >
+
+                <div class="texto-foto">
+
+                    Tú haces que mis recuerdos favoritos tengan tu nombre.
+
+                </div>
+
+            </div>
+
+
+            <!-- FOTO 5 -->
+
+            <div class="foto">
+
+                <img
+                    src="fotos/foto5.jpg"
+                    alt="Nuestro recuerdo"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML += '<div class=\'sin-foto\'>📸<br><br>Aquí irá nuestra quinta foto</div>';"
+                >
+
+                <div class="texto-foto">
+
+                    Y todavía nos quedan muchísimos recuerdos por crear.
+
+                </div>
+
+            </div>
+
+
+            <!-- FOTO 6 -->
+
+            <div class="foto">
+
+                <img
+                    src="fotos/foto6.jpg"
+                    alt="Nuestro recuerdo"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML += '<div class=\'sin-foto\'>📸<br><br>Aquí irá nuestra sexta foto</div>';"
+                >
+
+                <div class="texto-foto">
+
+                    Esta historia apenas está comenzando. ❤️
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- FRASE FINAL -->
+
+        <div class="frase">
+
+            Y si estos son solamente algunos de nuestros recuerdos...
+
+            <br><br>
+
+            imagina todos los que todavía nos faltan por vivir.
+
+        </div>
+
+
+        <!-- SIGUIENTE -->
+
+        <a
+            class="boton"
+            href="sorpresa.html"
+        >
+
+            Hay algo más para ti... 💌
+
+        </a>
+
+
+    </main>
+
+
+    <!-- CONTADOR -->
+
+    <script>
+
+        const inicio =
+            new Date("2026-01-09T00:00:00");
+
+        function actualizarContador() {
+
+            const ahora = new Date();
+
+            const diferencia =
+                ahora - inicio;
+
+            const dias =
+                Math.floor(
+                    diferencia /
+                    (1000 * 60 * 60 * 24)
+                );
+
+            const horas =
+                Math.floor(
+                    diferencia /
+                    (1000 * 60 * 60)
+                ) % 24;
+
+            const minutos =
+                Math.floor(
+                    diferencia /
+                    (1000 * 60)
+                ) % 60;
+
+
+            document.getElementById("dias")
+                .textContent = dias;
+
+            document.getElementById("horas")
+                .textContent = horas;
+
+            document.getElementById("minutos")
+                .textContent = minutos;
+
+        }
+
+
+        actualizarContador();
+
+        setInterval(
+            actualizarContador,
+            60000
+        );
+
+    </script>
+
+
+</body>
+
+</html>
